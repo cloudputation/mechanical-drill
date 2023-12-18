@@ -1,0 +1,14 @@
+[
+  {
+    "files": [
+      "main.go",
+      "packages/**/*.go",
+      ".air.toml",
+      "Dockerfile",
+      ".gitlab-ci.yml"
+    ],
+    "command": "./helpers/onsave.mechanical-drill.sh",
+    "showOutput": "false",
+    "showError": "false"
+  }
+]
