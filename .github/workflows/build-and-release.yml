@@ -32,8 +32,8 @@ jobs:
         release_name: "Release v${{ env.VERSION }}"
         draft: false
         prerelease: false
-        body: "Service Factory binary release"
+        body: "Mechanical Drill binary release"
         files: |
-          build/service-factory
+          build/mechanical-drill
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
