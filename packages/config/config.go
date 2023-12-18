@@ -28,7 +28,7 @@ type PCIDrillConfig struct {
 }
 
 var AppConfig Configuration
-var NomadClient *api.Client // Nomad client
+var NomadClient *api.Client
 var ConfigPath string
 var RootDir string
 
