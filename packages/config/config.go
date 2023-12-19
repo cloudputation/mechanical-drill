@@ -20,14 +20,19 @@ type Configuration struct {
 }
 
 type DrillConfig struct {
-    PCI PCIDrillConfig `hcl:"pci,block"`
+    Network NetworkDrillConfig `hcl:"network,block"`
+    Storage StorageDrillConfig `hcl:"storage,block"`
 }
 
-type PCIDrillConfig struct {
+type NetworkDrillConfig struct {
     Enabled   bool  `hcl:"enabled"`
     Frequency int   `hcl:"frequency"`
 }
 
+type StorageDrillConfig struct {
+    Enabled   bool  `hcl:"enabled"`
+    Frequency int   `hcl:"frequency"`
+}
 
 var AppConfig Configuration
 var NomadClient *api.Client
@@ -81,6 +86,6 @@ func InitializeNomadClient() error {
         return fmt.Errorf("Error creating Nomad client: %v", err)
     }
 
-    
+
     return nil
 }
