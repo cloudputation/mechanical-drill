@@ -3,7 +3,7 @@
 
 ## Description
 
-Mechanical Drill is a tool to enable a hardware aware Nomad cluster by discovering hardware equipment connected to a machine. This equipment information is given to a nomad node as metadata which can then be used for precise scheduling constraints.
+Mechanical Drill is a tool to enable a hardware aware Nomad cluster by discovering hardware equipment connected to a machine. This equipment information is given to a nomad node leveraging its metadata which can be used for a more dynamic scheduling control using placement constraints.
 
 
 

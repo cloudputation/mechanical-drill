@@ -13,6 +13,5 @@ func main() {
 			l.Fatal("Failed to load configuration: %v", err)
 	}
 
-	scheduler := engine.NewDrillScheduler()
-	scheduler.StartEngine()
+	engine.StartEngine()
 }

@@ -10,6 +10,7 @@ import (
     "github.com/spf13/viper"
 )
 
+
 type Configuration struct {
     LogDir    string `hcl:"log_dir"`
     DataDir   string `hcl:"data_dir"`
@@ -26,6 +27,7 @@ type PCIDrillConfig struct {
     Enabled   bool  `hcl:"enabled"`
     Frequency int   `hcl:"frequency"`
 }
+
 
 var AppConfig Configuration
 var NomadClient *api.Client
@@ -78,5 +80,7 @@ func InitializeNomadClient() error {
     if err != nil {
         return fmt.Errorf("Error creating Nomad client: %v", err)
     }
+
+    
     return nil
 }
