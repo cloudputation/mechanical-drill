@@ -8,10 +8,14 @@ nomad_host  = "127.0.0.1"
 drill {
   network {
     enabled   = true
-    frequency = 60
+    frequency = 30
   }
   storage {
     enabled   = true
-    frequency = 60
+    frequency = 30
+  }
+  cpu {
+    enabled   = true
+    frequency = 10
   }
 }

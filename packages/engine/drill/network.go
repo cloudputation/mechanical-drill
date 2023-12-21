@@ -5,7 +5,7 @@ import (
 )
 
 func NetworkDrill() (string, error) {
-	out, err := exec.Command("cat", "./tests/data/network.json").Output()
+	out, err := exec.Command("lshw", "-json", "-class", "network").Output()
 	if err != nil {
 		return "", err
 	}

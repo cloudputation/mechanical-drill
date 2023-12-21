@@ -22,6 +22,7 @@ type Configuration struct {
 type DrillConfig struct {
     Network NetworkDrillConfig `hcl:"network,block"`
     Storage StorageDrillConfig `hcl:"storage,block"`
+    CPU CPUDrillConfig `hcl:"cpu,block"`
 }
 
 type NetworkDrillConfig struct {
@@ -30,6 +31,11 @@ type NetworkDrillConfig struct {
 }
 
 type StorageDrillConfig struct {
+    Enabled   bool  `hcl:"enabled"`
+    Frequency int   `hcl:"frequency"`
+}
+
+type CPUDrillConfig struct {
     Enabled   bool  `hcl:"enabled"`
     Frequency int   `hcl:"frequency"`
 }

@@ -5,7 +5,7 @@ import (
 )
 
 func StorageDrill() (string, error) {
-	out, err := exec.Command("cat", "./tests/data/storage.json").Output()
+	out, err := exec.Command("lshw", "-json", "-class", "storage").Output()
 	if err != nil {
 		return "", err
 	}
