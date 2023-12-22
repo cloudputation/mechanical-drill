@@ -5,7 +5,7 @@ import (
     "fmt"
 )
 
-type ProcessorDevice struct {
+type Device struct {
     Id            string                 `json:"id"`
     Class         string                 `json:"class"`
     Description   string                 `json:"description"`
@@ -24,18 +24,18 @@ type ProcessorDevice struct {
     Capabilities  map[string]interface{} `json:"capabilities"`
 }
 
-func ExportCPUDetails(jsonData string) {
-    var processorDevices []ProcessorDevice
-    err := json.Unmarshal([]byte(jsonData), &processorDevices)
+func GetDeviceDetails(jsonData string) {
+    var devices []Device
+    err := json.Unmarshal([]byte(jsonData), &devices)
     if err != nil {
         fmt.Println("Error unmarshalling JSON:", err)
         return
     }
 
-    var devices []interface{}
-    for _, device := range processorDevices {
-        devices = append(devices, device)
+    var devicesDetails []interface{}
+    for _, deviceDetail := range devices {
+        devicesDetails = append(devicesDetails, deviceDetail)
     }
 
-    ExportDeviceDetails(devices)
+    ExportDeviceDetails(devicesDetails)
 }

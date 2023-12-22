@@ -20,9 +20,19 @@ type Configuration struct {
 }
 
 type DrillConfig struct {
-    Network NetworkDrillConfig `hcl:"network,block"`
-    Storage StorageDrillConfig `hcl:"storage,block"`
-    CPU CPUDrillConfig `hcl:"cpu,block"`
+    Network     *NetworkDrillConfig     `hcl:"network,block"`
+    Storage     *StorageDrillConfig     `hcl:"storage,block"`
+    Bus         *BusDrillConfig         `hcl:"bus,block"`
+    Memory      *MemoryDrillConfig      `hcl:"memory,block"`
+    Processor   *ProcessorDrillConfig   `hcl:"cpu,block"`
+    Bridge      *BridgeDrillConfig      `hcl:"bridge,block"`
+    Hub         *HubDrillConfig         `hcl:"hub,block"`
+    Display     *DisplayDrillConfig     `hcl:"display,block"`
+    Multimedia  *MultimediaDrillConfig  `hcl:"multimedia,block"`
+    Communication *CommunicationDrillConfig `hcl:"communication,block"`
+    Volume      *VolumeDrillConfig      `hcl:"volume,block"`
+    Disk        *DiskDrillConfig        `hcl:"disk,block"`
+    Generic     *GenericDrillConfig     `hcl:"generic,block"`
 }
 
 type NetworkDrillConfig struct {
@@ -35,10 +45,61 @@ type StorageDrillConfig struct {
     Frequency int   `hcl:"frequency"`
 }
 
-type CPUDrillConfig struct {
+type BusDrillConfig struct {
     Enabled   bool  `hcl:"enabled"`
     Frequency int   `hcl:"frequency"`
 }
+
+type MemoryDrillConfig struct {
+    Enabled   bool  `hcl:"enabled"`
+    Frequency int   `hcl:"frequency"`
+}
+
+type ProcessorDrillConfig struct {
+    Enabled   bool  `hcl:"enabled"`
+    Frequency int   `hcl:"frequency"`
+}
+
+type BridgeDrillConfig struct {
+    Enabled   bool  `hcl:"enabled"`
+    Frequency int   `hcl:"frequency"`
+}
+
+type HubDrillConfig struct {
+    Enabled   bool  `hcl:"enabled"`
+    Frequency int   `hcl:"frequency"`
+}
+
+type DisplayDrillConfig struct {
+    Enabled   bool  `hcl:"enabled"`
+    Frequency int   `hcl:"frequency"`
+}
+
+type MultimediaDrillConfig struct {
+    Enabled   bool  `hcl:"enabled"`
+    Frequency int   `hcl:"frequency"`
+}
+
+type CommunicationDrillConfig struct {
+    Enabled   bool  `hcl:"enabled"`
+    Frequency int   `hcl:"frequency"`
+}
+
+type VolumeDrillConfig struct {
+    Enabled   bool  `hcl:"enabled"`
+    Frequency int   `hcl:"frequency"`
+}
+
+type DiskDrillConfig struct {
+    Enabled   bool  `hcl:"enabled"`
+    Frequency int   `hcl:"frequency"`
+}
+
+type GenericDrillConfig struct {
+    Enabled   bool  `hcl:"enabled"`
+    Frequency int   `hcl:"frequency"`
+}
+
 
 var AppConfig Configuration
 var NomadClient *api.Client
