@@ -48,7 +48,7 @@ func processMapField(fieldName string, value interface{}, deviceIndex string, de
     }
 
     for k, v := range m {
-        k = strings.ReplaceAll(k, ".", "")
+        k = strings.ReplaceAll(k, ".", "-")
 
         if len(k) > 0 && k[0] >= '0' && k[0] <= '9' {
             k = "d" + k
@@ -59,8 +59,6 @@ func processMapField(fieldName string, value interface{}, deviceIndex string, de
         applyNomadMetadata(kv)
     }
 }
-
-
 
 func applyNomadMetadata(kv string) {
     cmd := exec.Command("nomad", "node", "meta", "apply", kv)
