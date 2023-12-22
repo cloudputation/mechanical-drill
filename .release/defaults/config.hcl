@@ -8,7 +8,7 @@ nomad_host  = "127.0.0.1"
 
 drill {
   system {
-    enabled   = false
+    enabled   = true
     frequency = 60
   }
   battery {
@@ -16,71 +16,71 @@ drill {
     frequency = 60
   }
   bridge {
-    enabled   = false
+    enabled   = true
     frequency = 60
   }
   memory {
-    enabled   = false
+    enabled   = true
     frequency = 60
   }
   processor {
-    enabled   = false
+    enabled   = true
     frequency = 60
   }
   address {
-    enabled   = false
+    enabled   = true
     frequency = 60
   }
   storage {
-    enabled   = false
+    enabled   = true
     frequency = 60
   }
   disk {
-    enabled   = false
+    enabled   = true
     frequency = 60
   }
   tape {
-    enabled   = false
+    enabled   = true
     frequency = 60
   }
   bus {
-    enabled   = false
+    enabled   = true
     frequency = 60
   }
   network {
-    enabled   = false
+    enabled   = true
     frequency = 60
   }
   display {
-    enabled   = false
+    enabled   = true
     frequency = 60
   }
   input {
-    enabled   = false
+    enabled   = true
     frequency = 60
   }
   printer {
-    enabled   = false
+    enabled   = true
     frequency = 60
   }
   multimedia {
-    enabled   = false
+    enabled   = true
     frequency = 60
   }
   communication {
-    enabled   = false
+    enabled   = true
     frequency = 60
   }
   power {
-    enabled   = false
+    enabled   = true
     frequency = 60
   }
   volume {
-    enabled   = false
+    enabled   = true
     frequency = 60
   }
   generic {
-    enabled   = false
+    enabled   = true
     frequency = 60
   }
 

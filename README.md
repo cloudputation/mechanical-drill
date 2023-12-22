@@ -43,7 +43,7 @@ drill {
   }
 }
 ```
-
+you can find  fully configured config.hcl [here](.release/defaults/config.hcl)
 ### Complete hardware classes avalaible
 `System`<br>
 `Battery`<br>
