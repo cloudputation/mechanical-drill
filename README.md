@@ -13,9 +13,9 @@ mv ./drill /usr/bin/
 ```
 
 ## Configuration
-By default, Mechanical Drill looks for `/etc/mechanical-drill/config.hcl`
+By default, Mechanical Drill looks for a configuration file at path: `/etc/mechanical-drill/config.hcl`
 
-Here is an example server config file
+Here is an example drill config file
 ```hcl
 // Those configuration options are reserved for a future version
 log_dir     = "log"
@@ -73,7 +73,7 @@ drill
 ```
 
 ## Classification
-Device are collected as a list. The first occurrence is 0 meaning it will be labeled as `device0`. For example: if you want to schedule a job based on the percentage of the first battery of your system then `md.battery.device0.percentage` will be the correct constraint to use in your Nomad job.
+Devices are added to a list as they are collected. The first occurrence is 0 meaning it will be labeled as `device0`. For example: if you want to schedule a job based on the percentage of the first battery of your system then `md.battery.device0.percentage` will be the correct constraint to use in your Nomad job.
 
 #### Schedule jobs to manage a fleet of drones based on battery level
 Fly to recharge pad:
@@ -98,7 +98,8 @@ For now Mechanical Drill is only compatible with Linux systems
 
 ## Specifications
 Although the classes `battery` and `power` are similar, they are different in their purpose:
-`battery` returns the battery status and charge percentage. Possible statuses are "charging" and "fully-charged".
+
+`battery` returns the battery status and charge percentage. Possible statuses are "charging", "discharging" or "fully-charged".
 
 `power` returns hardware specific information such as the manufacturer
 
