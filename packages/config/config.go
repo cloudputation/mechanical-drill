@@ -10,7 +10,6 @@ import (
     "github.com/spf13/viper"
 )
 
-
 type Configuration struct {
     LogDir    string `hcl:"log_dir"`
     DataDir   string `hcl:"data_dir"`
@@ -20,100 +19,128 @@ type Configuration struct {
 }
 
 type DrillConfig struct {
-    Network     *NetworkDrillConfig     `hcl:"network,block"`
-    Storage     *StorageDrillConfig     `hcl:"storage,block"`
-    Bus         *BusDrillConfig         `hcl:"bus,block"`
-    Memory      *MemoryDrillConfig      `hcl:"memory,block"`
-    Processor   *ProcessorDrillConfig   `hcl:"cpu,block"`
-    Bridge      *BridgeDrillConfig      `hcl:"bridge,block"`
-    Hub         *HubDrillConfig         `hcl:"hub,block"`
-    Display     *DisplayDrillConfig     `hcl:"display,block"`
-    Multimedia  *MultimediaDrillConfig  `hcl:"multimedia,block"`
+    System        *SystemDrillConfig        `hcl:"system,block"`
+    Bridge        *BridgeDrillConfig        `hcl:"bridge,block"`
+    Battery       *BatteryDrillConfig       `hcl:"battery,block"`
+    Memory        *MemoryDrillConfig        `hcl:"memory,block"`
+    Processor     *ProcessorDrillConfig     `hcl:"processor,block"`
+    Address       *AddressDrillConfig       `hcl:"address,block"`
+    Storage       *StorageDrillConfig       `hcl:"storage,block"`
+    Disk          *DiskDrillConfig          `hcl:"disk,block"`
+    Tape          *TapeDrillConfig          `hcl:"tape,block"`
+    Bus           *BusDrillConfig           `hcl:"bus,block"`
+    Network       *NetworkDrillConfig       `hcl:"network,block"`
+    Display       *DisplayDrillConfig       `hcl:"display,block"`
+    Input         *InputDrillConfig         `hcl:"input,block"`
+    Printer       *PrinterDrillConfig       `hcl:"printer,block"`
+    Multimedia    *MultimediaDrillConfig    `hcl:"multimedia,block"`
     Communication *CommunicationDrillConfig `hcl:"communication,block"`
-    Volume      *VolumeDrillConfig      `hcl:"volume,block"`
-    Disk        *DiskDrillConfig        `hcl:"disk,block"`
-    Generic     *GenericDrillConfig     `hcl:"generic,block"`
+    Power         *PowerDrillConfig         `hcl:"power,block"`
+    Volume        *VolumeDrillConfig        `hcl:"volume,block"`
+    Generic       *GenericDrillConfig       `hcl:"generic,block"`
 }
 
-type NetworkDrillConfig struct {
-    Enabled   bool  `hcl:"enabled"`
-    Frequency int   `hcl:"frequency"`
+type SystemDrillConfig struct {
+    Enabled   bool `hcl:"enabled"`
+    Frequency int  `hcl:"frequency"`
 }
 
-type StorageDrillConfig struct {
-    Enabled   bool  `hcl:"enabled"`
-    Frequency int   `hcl:"frequency"`
-}
-
-type BusDrillConfig struct {
-    Enabled   bool  `hcl:"enabled"`
-    Frequency int   `hcl:"frequency"`
-}
-
-type MemoryDrillConfig struct {
-    Enabled   bool  `hcl:"enabled"`
-    Frequency int   `hcl:"frequency"`
-}
-
-type ProcessorDrillConfig struct {
-    Enabled   bool  `hcl:"enabled"`
-    Frequency int   `hcl:"frequency"`
+type BatteryDrillConfig struct {
+    Enabled   bool `hcl:"enabled"`
+    Frequency int  `hcl:"frequency"`
 }
 
 type BridgeDrillConfig struct {
-    Enabled   bool  `hcl:"enabled"`
-    Frequency int   `hcl:"frequency"`
+    Enabled   bool `hcl:"enabled"`
+    Frequency int  `hcl:"frequency"`
 }
 
-type HubDrillConfig struct {
-    Enabled   bool  `hcl:"enabled"`
-    Frequency int   `hcl:"frequency"`
+type MemoryDrillConfig struct {
+    Enabled   bool `hcl:"enabled"`
+    Frequency int  `hcl:"frequency"`
 }
 
-type DisplayDrillConfig struct {
-    Enabled   bool  `hcl:"enabled"`
-    Frequency int   `hcl:"frequency"`
+type ProcessorDrillConfig struct {
+    Enabled   bool `hcl:"enabled"`
+    Frequency int  `hcl:"frequency"`
 }
 
-type MultimediaDrillConfig struct {
-    Enabled   bool  `hcl:"enabled"`
-    Frequency int   `hcl:"frequency"`
+type AddressDrillConfig struct {
+    Enabled   bool `hcl:"enabled"`
+    Frequency int  `hcl:"frequency"`
 }
 
-type CommunicationDrillConfig struct {
-    Enabled   bool  `hcl:"enabled"`
-    Frequency int   `hcl:"frequency"`
-}
-
-type VolumeDrillConfig struct {
-    Enabled   bool  `hcl:"enabled"`
-    Frequency int   `hcl:"frequency"`
+type StorageDrillConfig struct {
+    Enabled   bool `hcl:"enabled"`
+    Frequency int  `hcl:"frequency"`
 }
 
 type DiskDrillConfig struct {
-    Enabled   bool  `hcl:"enabled"`
-    Frequency int   `hcl:"frequency"`
+    Enabled   bool `hcl:"enabled"`
+    Frequency int  `hcl:"frequency"`
+}
+
+type TapeDrillConfig struct {
+    Enabled   bool `hcl:"enabled"`
+    Frequency int  `hcl:"frequency"`
+}
+
+type BusDrillConfig struct {
+    Enabled   bool `hcl:"enabled"`
+    Frequency int  `hcl:"frequency"`
+}
+
+type NetworkDrillConfig struct {
+    Enabled   bool `hcl:"enabled"`
+    Frequency int  `hcl:"frequency"`
+}
+
+type DisplayDrillConfig struct {
+    Enabled   bool `hcl:"enabled"`
+    Frequency int  `hcl:"frequency"`
+}
+
+type InputDrillConfig struct {
+    Enabled   bool `hcl:"enabled"`
+    Frequency int  `hcl:"frequency"`
+}
+
+type PrinterDrillConfig struct {
+    Enabled   bool `hcl:"enabled"`
+    Frequency int  `hcl:"frequency"`
+}
+
+type MultimediaDrillConfig struct {
+    Enabled   bool `hcl:"enabled"`
+    Frequency int  `hcl:"frequency"`
+}
+
+type CommunicationDrillConfig struct {
+    Enabled   bool `hcl:"enabled"`
+    Frequency int  `hcl:"frequency"`
+}
+
+type PowerDrillConfig struct {
+    Enabled   bool `hcl:"enabled"`
+    Frequency int  `hcl:"frequency"`
+}
+
+type VolumeDrillConfig struct {
+    Enabled   bool `hcl:"enabled"`
+    Frequency int  `hcl:"frequency"`
 }
 
 type GenericDrillConfig struct {
-    Enabled   bool  `hcl:"enabled"`
-    Frequency int   `hcl:"frequency"`
+    Enabled   bool `hcl:"enabled"`
+    Frequency int  `hcl:"frequency"`
 }
-
 
 var AppConfig Configuration
 var NomadClient *api.Client
 var ConfigPath string
-var RootDir string
-
 
 func LoadConfiguration() error {
-    RootDir, err := os.Getwd()
-    if err != nil {
-        return fmt.Errorf("Failed to get service root directory: %v", err)
-    }
-
-    configPath := fmt.Sprintf("%s/.release/defaults/config.hcl", RootDir)
+    configPath := fmt.Sprintf("/etc/mechanical-drill/config.hcl")
     viper.SetDefault("ConfigPath", configPath)
     viper.BindEnv("ConfigPath", "MD_CONFIG_FILE_PATH")
     ConfigPath = viper.GetString("ConfigPath")

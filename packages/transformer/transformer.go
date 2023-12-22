@@ -8,11 +8,43 @@ import (
     "strings"
 )
 
-func ExportDeviceDetails(devices []interface{}) {
-    for i, device := range devices {
-        processDeviceFields(device, strconv.Itoa(i))
+func ExportDeviceDetails(devices []interface{}, deviceType string) {
+    switch deviceType {
+    case "device":
+        for i, device := range devices {
+            processDeviceFields(device, strconv.Itoa(i))
+        }
+    case "battery":
+        for i, bat := range devices {
+            processBatteryFields(bat, i)
+        }
+    default:
+        fmt.Println("Unknown device type:", deviceType)
     }
 }
+
+func processBatteryFields(battery interface{}, index int) {
+    bat, ok := battery.(Battery)
+    if !ok {
+        fmt.Printf("Error processing battery field: %v\n", battery)
+        return
+    }
+
+    val := reflect.ValueOf(bat)
+    for i := 0; i < val.NumField(); i++ {
+        field := val.Type().Field(i)
+        fieldValue := val.Field(i).Interface()
+
+        if strVal, ok := fieldValue.(string); ok {
+            fieldValue = strings.ReplaceAll(strVal, "%", "")
+        }
+
+        kv := fmt.Sprintf("md.battery.device%d.%s=%v", index, strings.ToLower(field.Name), fieldValue)
+        fmt.Printf("[INFO] created battery entry: %s\n", kv)
+        applyNomadMetadata(kv)
+    }
+}
+
 
 func processDeviceFields(device interface{}, deviceIndex string) {
     val := reflect.ValueOf(device)

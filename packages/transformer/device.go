@@ -37,5 +37,5 @@ func GetDeviceDetails(jsonData string) {
         devicesDetails = append(devicesDetails, deviceDetail)
     }
 
-    ExportDeviceDetails(devicesDetails)
+    ExportDeviceDetails(devicesDetails, "device")
 }
