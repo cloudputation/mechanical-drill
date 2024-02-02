@@ -2,8 +2,10 @@
 
 
 ## Description
-Mechanical Drill is a tool to enable a hardware aware Nomad cluster by discovering hardware equipment connected to a machine. This equipment information is given to a nomad node leveraging its metadata which can be used for a more dynamic scheduling control using placement constraints.
+Mechanical Drill is a tool to enable a hardware aware Nomad cluster by discovering hardware equipment connected to a machine. This equipment information is exposed as node metadata which can be used for a more dynamic scheduling using placement constraints.
 
+## Node Metadata with Mechanical Drill hardware information
+![Node Metadata with Mechanical Drill hardware information image](.release/docs/assets/mechanical-drill-nomad-node-metadata.png)
 
 ## Installation
 ```bash
@@ -43,7 +45,7 @@ drill {
   }
 }
 ```
-you can find  fully configured config.hcl [here](.release/defaults/config.hcl)
+you can find fully configured config.hcl [here](.release/defaults/config.hcl)
 ### Complete hardware classes avalaible
 `System`<br>
 `Battery`<br>
